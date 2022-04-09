@@ -8,12 +8,14 @@ import { GoogleAuthProvider } from "firebase/auth";
  * Firebase
  **************************************/
 // Initialiser Firebase
-
+export const instanceFirebase = initializeApp(firebaseConfig);
 
 /***************************************
  * Firebase Authentication
  **************************************/
 // Initialiser Firebase Authentication
+export const authFirebase = getAuth(instanceFirebase);
+export const authGoogle = new GoogleAuthProvider();
 
 // Initialiser l'authentification fédérée Google
 
@@ -22,4 +24,5 @@ import { GoogleAuthProvider } from "firebase/auth";
  * Firestore
  ***************************************/
 // Initialiser Firestore
+export const bdFirestore = getFirestore();
 

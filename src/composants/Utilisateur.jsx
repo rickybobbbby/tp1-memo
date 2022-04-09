@@ -1,6 +1,7 @@
 import './Utilisateur.scss';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import { deconnexion } from '../code/user';
 
 export default function Utilisateur() {
   return (
@@ -12,7 +13,7 @@ export default function Utilisateur() {
         variant="outlined"
         size="small"
         className="btn-deconnexion"
-        onClick={() => alert('À compléter')}
+        onClick={deconnexion}
       >
         Déconnexion
       </Button>
