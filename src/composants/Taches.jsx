@@ -1,8 +1,8 @@
 import Tache from './Tache';
 import './Taches.scss';
 
-export default function Taches() {
-
+export default function Taches({utilisateur, dossiers, setDossiers}) {
+  console.log("Objet utilisateur retourné par le Provider GoogleAuth : ", utilisateur);
   return (
     <section className="Taches">
       <form onSubmit={e => alert('À compléter')}>

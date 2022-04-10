@@ -19,26 +19,20 @@ export default function Appli() {
   useEffect(() => observerEtatConnexion(setUtilisateur),[]);
   
   return (
+    // 1)  Si un utilisateur est connecté :
     utilisateur ?
         <div className="Appli">
-          <header className='Appli'>
+          <header className='appli-entete'>
             <img src={logo} className="appli-logo" alt="Memo" />
-            {/* <Entete utilisateur={utilisateur} /> */}
+          <Utilisateur utilisateur={utilisateur}/>
           </header>
-          <Utilisateur />
+          <Taches />
+          <Controle />
         </div>
+
+        
+      // 2) Par contre si aucun utilisateur n'est connecté, on affiche plutôt le composant suivant :
       :
         <Accueil /> 
-  );
-    // 1)  Si un utilisateur est connecté : 
-      // <div className="Appli">
-      //   <header className="appli-entete">
-      //     <img src={logo} className="appli-logo" alt="Memo" />
-      //     <Utilisateur />
-      //   </header>
-      //   <Taches />
-      //   <Controle />
-      // </div>
-
-    // 2) Par contre si aucun utilisateur n'est connecté, on affiche plutôt le composant suivant : 
+  ); 
 }
