@@ -14,10 +14,15 @@ export default function Appli() {
   
   // État 'utilisateur'
   const [utilisateur, setUtilisateur] = useState(null);
+
+  // État des 'dossiers' de l'utilisateur connecté
+  const [dossiers, setDossiers] = useState([]);
   
   // Surveiller l'état de la connexion Firebase Auth
   useEffect(() => observerEtatConnexion(setUtilisateur),[]);
-  
+
+
+
   return (
     // 1)  Si un utilisateur est connecté :
     utilisateur ?
@@ -26,7 +31,7 @@ export default function Appli() {
             <img src={logo} className="appli-logo" alt="Memo" />
           <Utilisateur utilisateur={utilisateur}/>
           </header>
-          <Taches />
+          <Taches utilisateur={utilisateur} dossiers={dossiers} setDossiers={setDossiers}/>
           <Controle />
         </div>
 
