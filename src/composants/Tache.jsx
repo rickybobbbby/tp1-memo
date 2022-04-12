@@ -1,11 +1,14 @@
 import './Tache.scss';
+import { formaterDate } from '../code/helper';
+import AlarmOffIcon from '@mui/icons-material/AlarmOff';
+import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 
-export default function Tache() {
+export default function Tache({id, titre, etat, dateModif}) {
   return (
     <div className="Tache">
-      Basculer
-      <span className="texte">Texte de la tâche</span>
-      <span className="date">(date formatée)</span>
+      <AlarmOffIcon/>
+      <span className="texte">{titre}</span>
+      <span className="date">{formaterDate(dateModif.seconds)}</span>
       Supprimer
     </div>
   );

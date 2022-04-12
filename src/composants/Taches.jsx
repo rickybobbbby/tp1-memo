@@ -1,7 +1,7 @@
 import Tache from './Tache';
 import './Taches.scss';
 import { useEffect } from 'react';
-import * as tachesModele from '../code/taches-modele';
+import * as tachesModele from '../code/crud-taches';
 
 export default function Taches({utilisateur, dossiers, setDossiers}) {
   //console.log("Objet utilisateur retourné par le Provider GoogleAuth : ", utilisateur);
@@ -19,6 +19,7 @@ function gererAjoutDossier(actionForm) {
 
   actionForm.preventDefault();
   let titre = actionForm.target.texteTache.value;
+  actionForm.target.reset();
   tachesModele.creer(utilisateur.uid, {
     titre: titre,
     etat: false 
@@ -30,6 +31,12 @@ function gererAjoutDossier(actionForm) {
   );
 }
 
+function changerTache() {
+//changer l etat
+}
+function detruireTache() {
+//changer 
+}
   return (
     <section className="Taches">
       <form onSubmit={e => gererAjoutDossier(e)}>
@@ -46,7 +53,7 @@ function gererAjoutDossier(actionForm) {
           // Remarquez l'utilisation du "spread operator" pour "étaler" les 
           // propriétés de l'objet 'dossier' reçu en paramètre de la fonction
           // fléchée dans les props du composant 'Dossier' !!
-        dossier =>  <li key={dossier.id}><Tache {...dossier} /></li>
+        dossier =>  <Tache key={dossier.id} {...dossier} />
         )
       }
       </div>
